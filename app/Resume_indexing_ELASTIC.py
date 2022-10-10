@@ -1,7 +1,7 @@
 from pymongo import MongoClient
 from elasticsearch import Elasticsearch
 from tqdm import tqdm
-file = open('profile_id_list.txt', 'w+')
+file = open('profile_id.py', 'w+')
 
 MDB_CLIENT = MongoClient("mongodb://akhileshn:akhileshn@10.216.247.81/?authMechanism=DEFAULT&authSource"
                          "=similar_profiles")
