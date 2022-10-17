@@ -30,6 +30,9 @@ class MongoUtil:
     def get_data(self, query):
         return self.__mongo_collection.find(query)
 
+    def get_single_profile(self, query):
+        return self.__mongo_collection.find_one(query)
+
 
 
 
