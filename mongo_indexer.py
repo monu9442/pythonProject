@@ -3,9 +3,16 @@ from app.profile_id import profile_id_list
 from pymongo.mongo_client import MongoClient
 
 
-MDB_DEST = MongoClient("mongodb://polaris:polaris@10.216.247.81/recruiters")
-DEST_COLL = MDB_DEST['resumes']['clean_text_resumes']
+client = MongoClient("mongodb://polaris:polaris@10.216.247.81/recruiters")
+collection = client["resumes"]["clean_text_resumes"]
 
-if DEST_COLL.find_one({"profile_id":101633666}):
-    DEST_COLL.update_many({"profile_id":101633666},{"$set":{"profile_id":101633666,"resume_text": "This is a sample update "
-                                                                                         "filter text"}},upsert=True)
+query = {"source_profile_ids"}
+query_1 = {"profile_id" : {"$in":[67674514]} }
+id_list = []
+mdb_data = collection.find(query_1)
+
+for data in mdb_data:
+    if data.get("profile_id") in id_list:
+        continue
+    id_list.append(data.get("profile_id"))
+    print(data)
