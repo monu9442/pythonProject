@@ -1,4 +1,7 @@
-profile_id = [293123]
+from api_tester import update_recruiter_dict
 
-string_int = ','.join(map(str,profile_id))
-print(string_int)
+recruiter_dict = {"a":False, "b":True, "c":False}
+
+update_recruiter_dict(["a","b"], "deny", recruiter_dict)
+
+print(recruiter_dict)
