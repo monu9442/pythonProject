@@ -1,7 +1,7 @@
 from datetime import datetime
 import pymongo
 from pymongo.errors import AutoReconnect
-from app.config.mongo import MongoConfig
+from app.config.mongo import mongo_config
 
 
 class MongoUtil:
@@ -13,10 +13,10 @@ class MongoUtil:
                 self.properties.get_collection()]
 
         except Exception as error_in_connection:
-            print("Error in Creating Connection.......")
+            print(f"Error in Creating Connection : {error_in_connection}")
 
     def __init__(self):
-        self.properties = MongoConfig()
+        self.properties = mongo_config
         self.__mongo_connection = None
         self.__mongo_collection = None
         self.create_connection()

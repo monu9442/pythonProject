@@ -1,7 +1,6 @@
 import time
 import copy
 from pprint import pprint
-from request import new_request
 import requests
 import json
 import timeit
