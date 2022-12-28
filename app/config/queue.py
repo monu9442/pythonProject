@@ -1,4 +1,11 @@
 import os
+QUEUE_PORT = '5672'
+
+# QA
+QUEUE_HOST = '172.30.3.42'
+
+# PROD
+# QUEUE_HOST = '172.30.25.10'
 
 
 class Queue:
@@ -8,8 +15,8 @@ class Queue:
     password = None
 
     def __init__(self):
-        self.host = os.environ.get("QUEUE_HOST")
-        self.port = os.environ.get("QUEUE_PORT")
+        self.host = QUEUE_HOST
+        self.port = QUEUE_PORT
         self.user = os.environ.get("QUEUE_USER")
         self.password = os.environ.get("QUEUE_PASSWORD")
 

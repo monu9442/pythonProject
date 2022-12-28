@@ -1,10 +1,12 @@
 import os
 
+MONGO_URL = 'polaris'
+
 class MongoConfig:
     def __init__(self):
-        self.url = os.environ.get("MONGO_CONNECTION_URL","mongodb://polaris:polaris@10.216.247.81/recruiters" )
+        self.url = MONGO_URL
         self.db = os.environ.get("MONGO_DB", "resumes")
-        self.collection = os.environ.get("MONGO_COLLECTION", 'seeker_resumes')
+        self.collection = os.environ.get("MONGO_COLLECTION")
         self.timeout = int(os.environ.get("MONGO_TIMEOUT", "1000"))
     
 

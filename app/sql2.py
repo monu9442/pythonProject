@@ -29,8 +29,7 @@ def get_es_results(kiwi_user_ids):
 
 def execute(query):
     try:
-        conn = mysql.connector.connect(host='172.30.10.40', user='Akhileshn', password='@kh!le$hnwert',
-                                       database="bazooka")
+        conn = mysql.connector.connect(host='10.216.247.68', user='appuser', password='dbpassword',database="falcon")
         print('connection successfull to DB2')
         cursor = conn.cursor()
         cursor.execute(query)
@@ -64,9 +63,9 @@ def get_profile_ids(offset):
     return profile_ids
 
 def main():
-    ids = [4492, 314, 2909, 4057, 3303, 493546, 14068, 19437]
-    ids2 = [664053, 619666, 4057, 48564, 294617, 6080, 181935]
-    for id in ids2:
-        RabbitMqConnector.publish_data({"id":id, "index":"yang", "type":"profile"})
+    query = "SELECT id as id, kiwi_profile_id as res_id from user_profiles WHERE kiwi_profile_id = 73451518"
+    db_data = execute(query)
+    for data in db_data:
+        print(data)
 
 main()
